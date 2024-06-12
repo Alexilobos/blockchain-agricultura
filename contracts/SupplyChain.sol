@@ -18,12 +18,8 @@ contract SupplyChain {
     }
 
     function getProduct(uint id) public view returns (uint, string memory, string memory, address) {
-        for (uint i = 0; i < products.length; i++) {
-            if (products[i].id == id) {
-                Product memory prod = products[i];
-                return (prod.id, prod.name, prod.description, prod.owner);
-            }
-        }
-        revert("Product not found");
+        require(id > 0 && id < nextId, "Product ID does not exist");
+        Product memory prod = products[id - 1]; // Asumiendo que los IDs comienzan en 1
+        return (prod.id, prod.name, prod.description, prod.owner);
     }
 }

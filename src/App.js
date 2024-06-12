@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/about" element={<About />} />
           <Route path="/dashboard" element={<Dashboard contractAddress={contractAddress} abi={contractABI} />} />
-<Route path="/manage-products" element={<ProductManager contractAddress={contractAddress} abi={contractABI} />} />
+          <Route path="/manage-products" element={<ProductManager contractAddress={contractAddress} abi={contractABI} />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </div>
